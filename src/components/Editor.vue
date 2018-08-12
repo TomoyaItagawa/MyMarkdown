@@ -33,8 +33,7 @@ export default {
     };
   },
   created: function() {
-    firebase.database().ref("memos/"+this.user.uid).once("value")
-    .then(result=>{
+    firebase.database().ref("memos/" + this.user.uid).once("value").then(result => {
       if(result.val()) {
         this.memos = result.val();
       }
@@ -56,7 +55,7 @@ export default {
       }
     },
     saveMemos: function() {
-      firebase.database().ref("memos/"+this.user.uid).set(this.memo);
+      firebase.database().ref("memos/" + this.user.uid).set(this.memos);
     },
     selectMemo: function(index) {
       this.selectedIndex = index;
